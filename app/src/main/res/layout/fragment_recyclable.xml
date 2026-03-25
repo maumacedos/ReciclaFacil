@@ -1,0 +1,71 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@drawable/background_city_selection"> <ImageView
+    android:id="@+id/image_recyclable"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:layout_marginTop="48dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:tint="@color/app_green"
+    android:src="@drawable/ic_recycling"
+    android:contentDescription="Ícone Reciclável" />
+
+    <TextView
+        android:id="@+id/text_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/app_green"
+        app:layout_constraintTop_toBottomOf="@+id/image_recyclable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Plástico (Azul)" />
+
+    <TextView
+        android:id="@+id/label_decomp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Tempo de Decomposição:"
+        android:textStyle="bold"
+        android:textSize="18sp"  app:layout_constraintTop_toBottomOf="@+id/text_nome"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_decomp_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="500 anos"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/label_decomp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/label_curiosity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Curiosidade:"
+        android:textStyle="bold"
+        android:textSize="18sp"  app:layout_constraintTop_toBottomOf="@+id/text_decomp_value"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_curiosity_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Grande parte do plástico no planeta vem de garrafas PET e embalagens."
+        app:layout_constraintTop_toBottomOf="@+id/label_curiosity"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
