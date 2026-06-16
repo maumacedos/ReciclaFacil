@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
+    <!-- Cor de fundo branca com 85% de opacidade para dar contraste total sobre a foto -->
+    <solid android:color="#D9FFFFFF" />
 
-    <solid android:color="#80FFFFFF"/>
-
-    <stroke android:color="#A0A0A0" android:width="1dp"/>
+    <!-- Tamanho base do círculo -->
+    <size
+        android:width="48dp"
+        android:height="48dp" />
 </shape>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:gravity="center_horizontal">
+
+        <!-- Espaço flexível superior para centralizar os elementos verticalmente -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- 🌲 Logotipo do Recicla Fácil (Grande e Centralizado) -->
+        <ImageView
+            android:id="@+id/logo_recicla"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/logo_recicla"
+            android:contentDescription="Logo Recicla Fácil"
+            android:layout_marginBottom="32dp" />
+
+        <!-- 👤 Campo Nome Completo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome Completo"
+            android:textColor="#14171A"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etRegisterName"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="Seu nome e sobrenome"
+            android:inputType="textPersonName"
+            android:background="@drawable/edit_text_background"
+            android:paddingHorizontal="16dp"
+            android:textColor="#14171A"
+            android:textColorHint="#AAB8C2"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp" />
+
+        <!-- ✉️ Campo E-mail -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:textColor="#14171A"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etRegisterEmail"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="exemplo@email.com"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/edit_text_background"
+            android:paddingHorizontal="16dp"
+            android:textColor="#14171A"
+            android:textColorHint="#AAB8C2"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp" />
+
+        <!-- 🔒 Campo Senha -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Senha"
+            android:textColor="#14171A"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etRegisterPassword"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="Mínimo 6 caracteres"
+            android:inputType="textPassword"
+            android:background="@drawable/edit_text_background"
+            android:paddingHorizontal="16dp"
+            android:textColor="#14171A"
+            android:textColorHint="#AAB8C2"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp" />
+
+        <!-- 🔒 Campo Confirmar Senha -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirmar Senha"
+            android:textColor="#14171A"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etRegisterConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="Digite a senha novamente"
+            android:inputType="textPassword"
+            android:background="@drawable/edit_text_background"
+            android:paddingHorizontal="16dp"
+            android:textColor="#14171A"
+            android:textColorHint="#AAB8C2"
+            android:layout_marginBottom="32dp"
+            android:textSize="16sp" />
+
+        <!-- 🚀 Botão Cadastrar -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Cadastrar"
+            android:backgroundTint="@color/app_green"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="12dp"
+            android:layout_marginBottom="24dp"
+            android:elevation="2dp" />
+
+        <!-- Link para voltar ao Login -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Já tem uma conta? "
+                android:textColor="#657786"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvBackToLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Entre aqui"
+                android:textColor="@color/app_green"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- Espaço flexível inferior -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+</ScrollView>

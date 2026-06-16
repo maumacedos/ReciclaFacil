@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_city_selection"
-    android:padding="16dp"
+    android:background="#F8F9FA"
+    android:padding="32dp"
     tools:context=".CitySelectionActivity">
 
     <TextView
@@ -13,71 +13,94 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Selecione sua Cidade"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-
+        android:textColor="@color/app_green"
+        android:letterSpacing="0.02"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_subtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha onde deseja encontrar pontos de coleta"
+        android:textSize="14sp"
+        android:textColor="#657786"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/card_dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_dropdown"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
         app:cardCornerRadius="12dp"
-        app:cardElevation="8dp"
-        app:cardBackgroundColor="@color/light_gray"
-
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/btn_confirmar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        app:layout_constraintBottom_toTopOf="@+id/btn_confirmar">
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle">
 
-    <LinearLayout
-        android:id="@+id/ll_city_selector"
+        <LinearLayout
+            android:id="@+id/ll_city_selector"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:paddingHorizontal="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_edit_location"
+                app:tint="@color/app_green"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:id="@+id/tv_cidade_selecionada"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Selecione a Cidade"
+                android:textSize="16sp"
+                android:textColor="#14171A" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/spinner_background"
+                app:tint="#AAB8C2" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_confirmar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="@android:color/transparent">
+        android:layout_height="54dp"
+        android:text="Confirmar"
+        android:backgroundTint="@color/app_green"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="12dp"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_dropdown" />
 
-        <TextView
-            android:id="@+id/tv_cidade_selecionada"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Selecione a Cidade"
-            android:textSize="16sp"
-            android:textColor="@color/black" />
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
-
-<Button
-android:id="@+id/btn_confirmar"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-
-android:layout_marginTop="16dp"
-android:text="Confirmar"
-android:padding="12dp"
-android:backgroundTint="@color/app_green"
-android:textColor="@color/white"
-app:layout_constraintEnd_toEndOf="@id/card_dropdown"
-app:layout_constraintStart_toStartOf="@id/card_dropdown"
-app:layout_constraintTop_toBottomOf="@+id/card_dropdown"
-app:layout_constraintBottom_toBottomOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

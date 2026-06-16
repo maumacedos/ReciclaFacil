@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import androidx.core.content.edit
 
 class MainActivity : AppCompatActivity() {
 
@@ -123,21 +125,31 @@ class MainActivity : AppCompatActivity() {
                     startCitySelection()
                 }
                 R.id.nav_developers -> {
-                    // 🎯 Abre a Activity de Desenvolvedores
                     val developersIntent = Intent(this, DevelopersActivity::class.java)
                     startActivity(developersIntent)
                 }
                 R.id.nav_understand -> {
-                    // 🎯 Abre a nova Activity "Entenda" (Reels)
                     val understandIntent = Intent(this, UnderstandActivity::class.java)
                     startActivity(understandIntent)
+                }
+                R.id.nav_logout -> {
+                    // 🚪 EFETUA O LOGOUT: Instancia o repositório e limpa a sessão do dispositivo
+                    val userRepository = UserRepository(this)
+                    userRepository.logoutUser()
+
+                    // Prepara a navegação de retorno à tela de Login
+                    val loginIntent = Intent(this, LoginActivity::class.java)
+
+                    // Limpa todo o histórico de telas por segurança
+                    loginIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(loginIntent)
+                    finish()
                 }
             }
             // Fecha o menu lateral após o clique
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
-
 
         // 5. Configuração do listener de pesquisa
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -154,15 +166,18 @@ class MainActivity : AppCompatActivity() {
         // 6. Configuração final
         locationAdapter.filterList(locaisIniciais)
         supportActionBar?.title = "Locais em $currentSelectedCity"
-    }
 
-    // Sobrescreve o método onBackPressed para fechar o drawer se estiver aberto
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
+        // 7. 🚪 Gerenciamento moderno do botão Voltar (Para fechar o menu com gestos se aberto)
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                } else {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+                }
+            }
+        })
     }
 
     // ===============================================
@@ -176,14 +191,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun saveSelectedCity(city: String) {
         getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-            .edit()
-            .putString(KEY_CIDADE, city)
-            .apply()
+            .edit {
+                putString(KEY_CIDADE, city)
+            }
     }
 
-    /**
-     * Função para iniciar a SelectCityActivity e esperar o resultado.
-     */
     private fun startCitySelection() {
         val intent = Intent(this, CitySelectionActivity::class.java).apply {
             putExtra(IS_CHANGE_KEY, true)

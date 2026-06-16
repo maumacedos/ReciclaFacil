@@ -23,11 +23,23 @@
 
     <group
         android:id="@+id/nav_group_understand"
-    android:checkableBehavior="single">
-    <item
-        android:id="@+id/nav_understand"
-        android:icon="@drawable/ic_learn"
-        android:title="Entenda" />
-</group>
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_understand"
+            android:icon="@drawable/ic_learn"
+            android:title="Entenda" />
+    </group>
 
-    </menu>
+    <!-- ========================================== -->
+    <!-- BOTÃO EXCLUSIVO DE SAIR (LOGOUT)          -->
+    <!-- ========================================== -->
+    <group
+        android:id="@+id/nav_group_logout"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@android:drawable/ic_lock_power_off"
+            android:title="Sair da Conta" />
+    </group>
+
+</menu>

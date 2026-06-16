@@ -12,13 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReciclaFacil">
 
+        <!-- 1. Tela Inicial de Carregamento (Mantida como principal) -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.App.SplashScreen"> <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            android:theme="@style/Theme.App.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -41,6 +43,26 @@
 
         <activity
             android:name=".UnderstandActivity"
+            android:exported="false" />
+
+        <!-- ========================================== -->
+        <!-- NOVAS TELAS DE AUTENTICAÇÃO ADICIONADAS    -->
+        <!-- ========================================== -->
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ProfileActivity"
             android:exported="false" />
 
     </application>

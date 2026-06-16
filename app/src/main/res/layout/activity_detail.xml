@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:background="#F8F9FA"
     tools:context=".DetailActivity">
 
     <LinearLayout
@@ -14,28 +16,20 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="250dp">
 
             <ImageView
                 android:id="@+id/detail_image_fachada"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/ic_recycling" />
 
-            <ImageButton
-                android:id="@+id/btn_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/rounded_button_bg"
-                android:src="@drawable/ic_arrow_back"
-                android:contentDescription="Voltar"
-                android:scaleType="fitCenter"
-                android:padding="8dp"
-                android:elevation="4dp"
-                app:tint="@color/black" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#000000"
+                android:alpha="0.20" />
 
         </FrameLayout>
 
@@ -43,139 +37,173 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="#FFFFFF"
+            android:elevation="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/detail_nome_empresa"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/app_green"
+                android:layout_marginBottom="16dp"
                 tools:text="Ecoponto São José" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp">
+                android:orientation="horizontal">
 
                 <ImageButton
                     android:id="@+id/btn_action_call"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
                     android:src="@drawable/ic_call"
-                    android:background="@drawable/rounded_button_bg"
+                    android:background="@drawable/edit_text_background"
+                    android:backgroundTint="#E8F5E9"
                     app:tint="@color/app_green"
                     android:contentDescription="Ligar para o local"
-                    android:layout_marginEnd="16dp" />
+                    android:layout_marginEnd="12dp" />
 
                 <ImageButton
                     android:id="@+id/btn_action_map"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
                     android:src="@drawable/ic_map"
-                    android:background="@drawable/rounded_button_bg"
+                    android:background="@drawable/edit_text_background"
+                    android:backgroundTint="#E8F5E9"
                     app:tint="@color/app_green"
                     android:contentDescription="Ver no Mapa" />
             </LinearLayout>
+        </LinearLayout>
 
-            <View android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="8dp"
-                android:background="@color/black" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="#FFFFFF"
+            android:elevation="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:padding="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
                     android:src="@drawable/ic_location_on"
-                    app:tint="@color/app_green"
-                    android:layout_marginEnd="8dp" />
+                    app:tint="@color/app_green" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Endereço:"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="8dp"
+                    android:text="Endereço"
+                    android:textColor="#14171A"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
             </LinearLayout>
             <TextView
                 android:id="@+id/detail_endereco"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="#4A5568"
+                android:textSize="15sp"
                 tools:text="Avenida Principal, 50, Campinas - São José" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
                     android:src="@drawable/ic_access_time"
-                    app:tint="@color/app_green"
-                    android:layout_marginEnd="8dp" />
+                    app:tint="@color/app_green" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Horário:"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="8dp"
+                    android:text="Horário de Funcionamento"
+                    android:textColor="#14171A"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
             </LinearLayout>
             <TextView
                 android:id="@+id/detail_horario"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="#4A5568"
+                android:textSize="15sp"
                 tools:text="Segunda a Sábado: 9h - 17h" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
                     android:src="@drawable/ic_call"
-                    app:tint="@color/app_green"
-                    android:layout_marginEnd="8dp" />
+                    app:tint="@color/app_green" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Telefone:"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="8dp"
+                    android:text="Contato Telefônico"
+                    android:textColor="#14171A"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
             </LinearLayout>
             <TextView
                 android:id="@+id/detail_telefone"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="#4A5568"
+                android:textSize="15sp"
                 tools:text="(48) 99999-0000" />
 
+            <View android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="#E2E8F0" />
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Materiais Aceitos:"
+                android:text="Materiais Aceitos"
+                android:textColor="#14171A"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp" />
+                android:layout_marginBottom="12dp" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chip_group_materiais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
                 app:chipSpacingHorizontal="8dp"
-                app:chipSpacingVertical="4dp"/>
+                app:chipSpacingVertical="6dp"/>
 
         </LinearLayout>
     </LinearLayout>

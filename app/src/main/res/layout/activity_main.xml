@@ -9,84 +9,87 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!-- Conteúdo Principal da Tela -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_city_selection"
+        android:background="#F8F9FA"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/text_titulo_locais"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Locais de Coleta"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/app_green"
-            android:paddingTop="48dp"
-            android:paddingBottom="8dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:gravity="center_vertical"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/search_bar_locais"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
+        <!-- 🍔 Botão do Menu Lateral (Posicionado perfeitamente no topo esquerdo) -->
         <ImageButton
             android:id="@+id/btn_change_city"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
             android:src="@drawable/ic_menu"
             android:contentDescription="Abrir Menu Lateral"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="8dp"
-            android:scaleType="center"
-            android:elevation="4dp"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
             app:tint="@color/app_green"
-
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="40dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/text_titulo_locais"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"                   />
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <!-- 🌲 Título da Tela (Alinhado com o botão, mas com o espaço ideal) -->
+        <TextView
+            android:id="@+id/text_titulo_locais"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="16dp"
+            android:text="Locais de Coleta"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/app_green"
+            android:letterSpacing="0.02"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_change_city"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- 🔍 Barra de Pesquisa Estilizada com Respiro Sutil -->
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_bar_locais"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_search_bg"
+            android:elevation="2dp"
             app:iconifiedByDefault="false"
             app:queryHint="Buscar por nome ou endereço..."
             app:layout_constraintTop_toBottomOf="@+id/text_titulo_locais"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- 🚫 Tela de Aviso para Busca Sem Resultados -->
         <TextView
             android:id="@+id/text_no_results"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
             android:text="Nenhum local de coleta encontrado para sua busca."
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColor="#657786"
             android:textAlignment="center"
+            android:lineSpacingMultiplier="1.2"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/search_bar_locais"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- 📱 Lista de Pontos de Coleta (RecyclerView) -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_locais"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="16dp"
             android:clipToPadding="false"
             app:layout_constraintTop_toBottomOf="@+id/search_bar_locais"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -97,15 +100,20 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Menu Lateral (Drawer) com Design Flat e Moderno -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
+        android:background="#FFFFFF"
         app:headerLayout="@layout/nav_header_reciclafacil"
         app:menu="@menu/nav_menu"
-
-        app:itemTextAppearance="@style/CustomNavTextAppearance" />
+        app:itemIconTint="@color/app_green"
+        app:itemTextColor="#14171A"
+        app:itemShapeInsetStart="12dp"
+        app:itemShapeInsetEnd="12dp"
+        app:itemMinHeight="50dp"
+        app:itemIconPadding="16dp" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

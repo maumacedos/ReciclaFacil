@@ -33,7 +33,6 @@ class DetailActivity : AppCompatActivity() {
         val materiaisList = intent.getStringArrayListExtra("MATERIAIS")
 
         // 2. Encontra as Views de Navegação e Conteúdo
-        val btnBack = findViewById<ImageButton>(R.id.btn_back)
         val tvNome = findViewById<TextView>(R.id.detail_nome_empresa)
         val imgFachada = findViewById<ImageView>(R.id.detail_image_fachada)
         val tvEndereco = findViewById<TextView>(R.id.detail_endereco)
@@ -44,11 +43,6 @@ class DetailActivity : AppCompatActivity() {
         val btnCall = findViewById<ImageButton>(R.id.btn_action_call)
         val btnMap = findViewById<ImageButton>(R.id.btn_action_map)
         val chipGroupMateriais = findViewById<ChipGroup>(R.id.chip_group_materiais)
-
-        // 3. Configura a Navegação de Retorno
-        btnBack.setOnClickListener {
-            finish() // ⬅️ O clique no botão de retorno chama finish()
-        }
 
         // 4. Configura as Ações Rápidas (Ligar e Mapa)
         btnCall.setOnClickListener {

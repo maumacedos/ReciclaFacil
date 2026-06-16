@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:gravity="center_horizontal">
+
+        <!-- Espaço flexível superior para empurrar tudo para o centro -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- 🌲 Logotipo do Recicla Fácil (Maior e Centralizado) -->
+        <ImageView
+            android:id="@+id/ivLoginLogo"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/logo_recicla"
+            android:contentDescription="Logo Recicla Fácil"
+            android:layout_marginBottom="48dp" />
+
+        <!-- ✉️ Campo de E-mail -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:textColor="#14171A"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="exemplo@email.com"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/edit_text_background"
+            android:paddingHorizontal="16dp"
+            android:textColor="#14171A"
+            android:textColorHint="#AAB8C2"
+            android:layout_marginBottom="20dp"
+            android:textSize="16sp" />
+
+        <!-- 🔒 Campo de Senha -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Senha"
+                android:textColor="#14171A"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_alignParentLeft="true" />
+
+            <!-- Link Esqueci a Senha -->
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Esqueceu a senha?"
+                android:textColor="@color/app_green"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:hint="Digite sua senha"
+            android:inputType="textPassword"
+            android:background="@drawable/edit_text_background"
+            android:paddingHorizontal="16dp"
+            android:textColor="#14171A"
+            android:textColorHint="#AAB8C2"
+            android:layout_marginBottom="32dp"
+            android:textSize="16sp" />
+
+        <!-- 🚀 Botão Entrar -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Entrar"
+            android:backgroundTint="@color/app_green"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="12dp"
+            android:layout_marginBottom="24dp"
+            android:elevation="2dp" />
+
+        <!-- Link para Cadastro -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Não tem uma conta? "
+                android:textColor="#657786"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cadastre-se"
+                android:textColor="@color/app_green"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- Espaço flexível inferior -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+</ScrollView>

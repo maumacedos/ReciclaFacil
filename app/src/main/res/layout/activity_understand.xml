@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://tools.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:fitsSystemWindows="true"
+    android:background="#F1F3F5"
+    tools:context=".UnderstandActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager_recyclable"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <!-- Carrossel de Informações -->
+<androidx.viewpager2.widget.ViewPager2
+android:id="@+id/view_pager_recyclable"
+android:layout_width="match_parent"
+android:layout_height="0dp"
+android:layout_marginBottom="16dp"
+android:clipToPadding="false"
+    android:clipChildren="false"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/layout_indicators"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/layout_indicators"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="60dp"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:padding="8dp" />
+    <!-- Layout dos Indicadores -->
+<LinearLayout
+android:id="@+id/layout_indicators"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:gravity="center"
+android:layout_marginBottom="24dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent" />
 
-</FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
