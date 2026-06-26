@@ -1,6 +1,6 @@
 # ♻️ Recicla Fácil - MVP
 
-**Projeto Acadêmico:** HOW IX
+**Projeto Acadêmico:** HOW X
 
 ## 📱 Sobre o Projeto
 O **Recicla Fácil** é uma solução mobile nativa para Android desenvolvida em Kotlin. O app ajuda cidadãos a encontrarem pontos de coleta seletiva próximos, além de educar sobre o tempo de decomposição de diferentes materiais.
